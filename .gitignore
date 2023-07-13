@@ -4,6 +4,7 @@ target/
 !**/src/test/**/target/
 mvnw*
 .mvn
+src/main/resources/spring-boot-h2-db.mv.db
 
 ### STS ###
 .apt_generated
