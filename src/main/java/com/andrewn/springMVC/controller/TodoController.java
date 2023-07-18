@@ -1,9 +1,14 @@
 package com.andrewn.springMVC.controller;
 
+import com.andrewn.springMVC.exceptions.TodoNotFoundException;
 import com.andrewn.springMVC.model.Todo;
 import com.andrewn.springMVC.repository.TodoRepository;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -31,8 +36,16 @@ public class TodoController {
     @GetMapping("/todos/{id}")
     Todo getTodo(@PathVariable Long id) {
         return todoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("No todo with " + id));
+                .orElseThrow(() -> new TodoNotFoundException(id));
     }
+
+    // теоретически работает, но предлагается так не писать, чтобы не "замусоривать" контроллер
+//    @ExceptionHandler(TodoNotFoundException.class)
+//    @ResponseBody
+//    @ResponseStatus(HttpStatus.NOT_FOUND)
+//    String todoNotFoundHandler(TodoNotFoundException ex) {
+//        return ex.getMessage();
+//    }
 
     @PostMapping("/todos")
     Todo createTodo(@RequestBody Todo newTodo) {

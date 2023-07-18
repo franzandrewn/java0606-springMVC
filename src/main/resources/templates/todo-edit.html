@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit todo</title>
+</head>
+<body>
+    <h1>Todo</h1>
+    <form action="#" th:action="@{/todos/} + ${todo.id}" th:object="${todo}" method="post">
+         <p>Description: <input type="text" th:field="*{desc}"/></p>
+         <p>Complete: <input type="checkbox" th:field="*{complete}"/></p>
+         <p>
+             <input type="submit" value="Submit"/>
+             <input type="reset" value="Reset"/>
+         </p>
+    </form>
+</body>
+</html>

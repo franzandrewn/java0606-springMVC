@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>All todos</title>
+</head>
+<body>
+<h1>Todos</h1>
+<table>
+    <th:block th:each="todo : ${todos}">
+        <tr>
+            <td th:text="${todo.id}"></td>
+            <td th:text="${todo.desc}"></td>
+            <td th:text="${todo.complete}"></td>
+            <td th:text="${todo.created}"></td>
+            <td><a th:href="'/todos/' + ${todo.id}">Info</a></td>
+            <td><a th:href="'/todos/edit/' + ${todo.id}">Edit</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
