@@ -1,75 +1,79 @@
 package com.andrewn.springMVC.model;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
-@Table(name="todo")
+@Table(name = "todo")
 public class Todo {
-    @Id
-    @Column(name="todo_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private String desc;
-    private boolean complete;
-    private Date created;
+  @Id
+  @Column(name = "todo_id")
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
 
-    public Todo() {
-    }
+  private String desc;
+  private boolean complete;
+  private Date created;
 
-    public Todo(long id, String desc, boolean complete, Date created) {
-        this.id = id;
-        this.desc = desc;
-        this.complete = complete;
-        this.created = created;
-    }
+  public Todo() {}
 
-    public Todo(String desc, boolean complete, Date created) {
-        this.desc = desc;
-        this.complete = complete;
-        this.created = created;
-    }
+  public Todo(long id, String desc, boolean complete, Date created) {
+    this.id = id;
+    this.desc = desc;
+    this.complete = complete;
+    this.created = created;
+  }
 
-    public long getId() {
-        return id;
-    }
+  public Todo(String desc, boolean complete, Date created) {
+    this.desc = desc;
+    this.complete = complete;
+    this.created = created;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public String getDesc() {
-        return desc;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
-    }
+  public String getDesc() {
+    return desc;
+  }
 
-    public boolean isComplete() {
-        return complete;
-    }
+  public void setDesc(String desc) {
+    this.desc = desc;
+  }
 
-    public void setComplete(boolean complete) {
-        this.complete = complete;
-    }
+  public boolean isComplete() {
+    return complete;
+  }
 
-    public Date getCreated() {
-        return created;
-    }
+  public void setComplete(boolean complete) {
+    this.complete = complete;
+  }
 
-    public void setCreated(Date created) {
-        this.created = created;
-    }
+  public Date getCreated() {
+    return created;
+  }
 
-    @Override
-    public String toString() {
-        return "Todo{" +
-                "id=" + id +
-                ", desc='" + desc + '\'' +
-                ", complete=" + complete +
-                ", created=" + created +
-                '}';
-    }
+  public void setCreated(Date created) {
+    this.created = created;
+  }
+
+  @Override
+  public String toString() {
+    return "Todo{"
+        + "id="
+        + id
+        + ", desc='"
+        + desc
+        + '\''
+        + ", complete="
+        + complete
+        + ", created="
+        + created
+        + '}';
+  }
 }

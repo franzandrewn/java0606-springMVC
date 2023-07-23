@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class TodoControllerAdvice {
 
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ResponseBody
-    @ExceptionHandler(TodoNotFoundException.class)
-    String todoNotFoundHandler(TodoNotFoundException ex) {
-        return ex.getMessage();
-    }
+  @ResponseStatus(HttpStatus.NOT_FOUND)
+  @ResponseBody
+  @ExceptionHandler(TodoNotFoundException.class)
+  String todoNotFoundHandler(TodoNotFoundException ex) {
+    return ex.getMessage();
+  }
 }

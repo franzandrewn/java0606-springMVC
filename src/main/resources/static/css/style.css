@@ -1,0 +1,13 @@
+.link-button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  font-size: 18.72px;
+  /*optional*/
+  font-family: "Times New Roman", sans-serif;
+  font-weight: bold;
+  /*input has OS specific font-family*/
+  color: #069;
+  text-decoration: underline;
+  cursor: pointer;
+}
